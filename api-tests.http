@@ -1,0 +1,215 @@
+###
+### Job Marketplace API - Test Collection
+### Base URL: http://localhost:3000
+###
+
+### Variables
+@baseUrl = http://localhost:3000
+@hirerToken = YOUR_HIRER_ACCESS_TOKEN
+@hustlerToken = YOUR_HUSTLER_ACCESS_TOKEN
+@jobId = YOUR_JOB_ID
+@hustlerId = YOUR_HUSTLER_USER_ID
+@applicationId = YOUR_APPLICATION_ID
+
+### ============================================
+### AUTHENTICATION
+### ============================================
+
+### 1. Register Hirer
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Hirer",
+  "email": "hirer@test.com",
+  "password": "password123",
+  "role": "hirer"
+}
+
+### 2. Register Hustler
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Jane Hustler",
+  "email": "hustler@test.com",
+  "password": "password123",
+  "role": "hustler"
+}
+
+### 3. Login as Hirer
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "hirer@test.com",
+  "password": "password123"
+}
+
+### 4. Login as Hustler
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "hustler@test.com",
+  "password": "password123"
+}
+
+### 5. Get Current User (Hirer)
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{hirerToken}}
+
+### 6. Get Current User (Hustler)
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{hustlerToken}}
+
+### 7. Refresh Token
+POST {{baseUrl}}/auth/refresh-token
+Authorization: Bearer {{hirerToken}}
+
+### 8. Reset Password
+POST {{baseUrl}}/auth/reset-password
+Authorization: Bearer {{hirerToken}}
+Content-Type: application/json
+
+{
+  "oldPassword": "password123",
+  "newPassword": "newpassword123"
+}
+
+### 9. Logout
+POST {{baseUrl}}/auth/logout
+Authorization: Bearer {{hirerToken}}
+
+### ============================================
+### JOBS (Hirer Endpoints)
+### ============================================
+
+### 10. Create Job (Hirer only)
+POST {{baseUrl}}/jobs
+Authorization: Bearer {{hirerToken}}
+Content-Type: application/json
+
+{
+  "title": "Full Stack Developer Needed",
+  "description": "Looking for an experienced full stack developer to build a web application with React and Node.js. Must have experience with MongoDB and REST APIs.",
+  "budget": 5000,
+  "requiredSkills": ["React", "Node.js", "MongoDB", "TypeScript", "REST APIs"]
+}
+
+### 11. Get All Open Jobs (Any authenticated user)
+GET {{baseUrl}}/jobs
+Authorization: Bearer {{hustlerToken}}
+
+### 12. Get My Jobs (Hirer only)
+GET {{baseUrl}}/jobs/my-jobs
+Authorization: Bearer {{hirerToken}}
+
+### 13. Get Job by ID
+GET {{baseUrl}}/jobs/{{jobId}}
+Authorization: Bearer {{hirerToken}}
+
+### 14. Update Job (Hirer only, own jobs)
+PATCH {{baseUrl}}/jobs/{{jobId}}
+Authorization: Bearer {{hirerToken}}
+Content-Type: application/json
+
+{
+  "title": "Senior Full Stack Developer Needed",
+  "budget": 6000
+}
+
+### 15. Delete Job (Hirer only, own jobs)
+DELETE {{baseUrl}}/jobs/{{jobId}}
+Authorization: Bearer {{hirerToken}}
+
+### 16. Select Best Candidate (Hirer only)
+POST {{baseUrl}}/jobs/{{jobId}}/select-candidate/{{hustlerId}}
+Authorization: Bearer {{hirerToken}}
+
+### 17. Close Job (Hirer only)
+POST {{baseUrl}}/jobs/{{jobId}}/close
+Authorization: Bearer {{hirerToken}}
+
+### ============================================
+### APPLICATIONS (Hustler/Hirer Endpoints)
+### ============================================
+
+### 18. Apply to Job (Hustler only)
+### NOTE: Use Postman or Thunder Client for file upload
+### Or use curl:
+### curl -X POST http://localhost:3000/applications/job/{{jobId}} \
+###   -H "Authorization: Bearer {{hustlerToken}}" \
+###   -F "message=I have 5 years of experience in full stack development..." \
+###   -F "expectedCost=4500" \
+###   -F "file=@/path/to/your/resume.pdf"
+
+POST {{baseUrl}}/applications/job/{{jobId}}
+Authorization: Bearer {{hustlerToken}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="message"
+
+I have 5 years of experience in full stack development with React, Node.js, and MongoDB. I have built multiple web applications and REST APIs. I am confident I can deliver this project within the timeline and budget.
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="expectedCost"
+
+4500
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="resume.pdf"
+Content-Type: application/pdf
+
+< ./test-files/sample-resume.pdf
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### 19. Get Applications for a Job (Hirer only, own jobs)
+GET {{baseUrl}}/applications/job/{{jobId}}
+Authorization: Bearer {{hirerToken}}
+
+### 20. Get My Applications (Hustler only)
+GET {{baseUrl}}/applications/my-applications
+Authorization: Bearer {{hustlerToken}}
+
+### 21. Update Application Status - Accept (Hirer only)
+PATCH {{baseUrl}}/applications/{{applicationId}}/status/accepted
+Authorization: Bearer {{hirerToken}}
+
+### 22. Update Application Status - Reject (Hirer only)
+PATCH {{baseUrl}}/applications/{{applicationId}}/status/rejected
+Authorization: Bearer {{hirerToken}}
+
+### 23. Delete Application (Hustler only, own pending applications)
+DELETE {{baseUrl}}/applications/{{applicationId}}
+Authorization: Bearer {{hustlerToken}}
+
+### ============================================
+### COMPLETE WORKFLOW TEST
+### ============================================
+
+### Step 1: Register and login as Hirer
+### Step 2: Create a job and copy the job ID
+### Step 3: Register and login as Hustler
+### Step 4: View available jobs
+### Step 5: Apply to the job with a file
+### Step 6: Login as Hirer again
+### Step 7: View applications for your job
+### Step 8: Select the best candidate
+### Step 9: Check job status updated to "in_progress"
+
+### ============================================
+### NOTES
+### ============================================
+
+# For file uploads, use tools like:
+# - Postman
+# - Thunder Client (VS Code extension)
+# - Insomnia
+# - curl command line
+
+# Example curl for file upload:
+# curl -X POST http://localhost:3000/applications/job/YOUR_JOB_ID \
+#   -H "Authorization: Bearer YOUR_TOKEN" \
+#   -F "message=Your message here" \
+#   -F "expectedCost=4500" \
+#   -F "file=@/path/to/resume.pdf"

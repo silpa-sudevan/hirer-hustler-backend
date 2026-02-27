@@ -1,0 +1,291 @@
+[
+  {
+    "tickets": [
+      {
+        "category": "Ticket Management",
+        "permissions": [
+          {
+            "aclKey": "ticket:create.any",
+            "label": "Create Tickets"
+          },
+          {
+            "aclKey": "ticket:view.any",
+            "options": ["own", "any", "assigned", "both"],
+            "label": "View Tickets"
+          },
+          {
+            "aclKey": "ticket:edit.any",
+            "options": ["own", "any", "assigned", "both"],
+            "label": "Edit Tickets"
+          },
+          {
+            "aclKey": "ticket:delete.any",
+            "options": ["own", "any", "assigned", "both"],
+            "label": "Remove Tickets"
+          }
+        ]
+      },
+      {
+        "category": "Ticket Message Management",
+        "permissions": [
+          {
+            "aclKey": "ticketMessage:create.any",
+            "label": "Create Ticket Messages"
+          },
+          {
+            "aclKey": "ticketMessage:view.any",
+            "label": "View Ticket Messages"
+          },
+          {
+            "aclKey": "ticketMessage:edit.any",
+            "label": "Edit Ticket Messages"
+          },
+          {
+            "aclKey": "ticketMessage:delete.any",
+            "label": "Remove Ticket Messages"
+          }
+        ]
+      },
+      {
+        "category": "Stage Management",
+        "permissions": [
+          {
+            "aclKey": "stage:create.own",
+            "label": "Create Stage"
+          },
+          {
+            "aclKey": "stage:view.own",
+            "label": "View Stage"
+          },
+          {
+            "aclKey": "stage:edit.own",
+            "label": "Edit Stage"
+          },
+          {
+            "aclKey": "stage:delete.own",
+            "label": "Delete Stage"
+          }
+        ]
+      },
+      {
+        "category": "Email Monitoring",
+        "permissions": [
+          {
+            "aclKey": "email:monitor.any",
+            "label": "Monitor Emails"
+          },
+          {
+            "aclKey": "email:close.noFeedback",
+            "label": "Close Tickets Without Feedback"
+          }
+        ]
+      },
+      {
+        "category": "Time Tracking",
+        "permissions": [
+          {
+            "aclKey": "timeLog:create.any",
+            "label": "Create Time Logs"
+          },
+          {
+            "aclKey": "timeLog:view.any",
+            "label": "View Time Logs"
+          },
+          {
+            "aclKey": "timeLog:edit.any",
+            "label": "Edit Time Logs"
+          },
+          {
+            "aclKey": "timeLog:delete.any",
+            "label": "Remove Time Logs"
+          }
+        ]
+      },
+      {
+        "category": "Customer Management",
+        "permissions": [
+          {
+            "aclKey": "customer:create.any",
+            "label": "Create Customers"
+          },
+          {
+            "aclKey": "customer:view.any",
+            "options": ["own", "any", "assigned", "both"],
+            "label": "View Customers"
+          },
+          {
+            "aclKey": "customer:edit.any",
+            "options": ["own", "any", "assigned", "both"],
+            "label": "Edit Customers"
+          },
+          {
+            "aclKey": "customer:delete.any",
+            "options": ["own", "any", "assigned", "both"],
+            "label": "Remove Customers"
+          }
+        ]
+      },
+      {
+        "category": "SLA Management",
+        "permissions": [
+          {
+            "aclKey": "sla:create.any",
+            "label": "Create SLA"
+          },
+          {
+            "aclKey": "sla:view.any",
+            "label": "View SLA"
+          },
+          {
+            "aclKey": "sla:edit.any",
+            "label": "Edit SLA"
+          },
+          {
+            "aclKey": "sla:delete.any",
+            "label": "Remove SLA"
+          }
+        ]
+      },
+      {
+        "category": "Email Configuration",
+        "permissions": [
+          {
+            "aclKey": "mail_config:view.any",
+            "label": "View Mail Configuration"
+          },
+          {
+            "aclKey": "email_templates:view.any",
+            "label": "View Email Templates"
+          }
+        ]
+      },
+      {
+        "category": "Support Dashboard",
+        "permissions": [
+          {
+            "aclKey": "support_dashboard:view.any",
+            "label": "View Support Dashboard"
+          }
+        ]
+      },
+      {
+        "category": "Alerts",
+        "permissions": [
+          {
+            "aclKey": "alerts:view.any",
+            "label": "View Alerts"
+          }
+        ]
+      },
+      {
+        "category": "Integrated Products",
+        "permissions": [
+          {
+            "aclKey": "integrated_products:view.any",
+            "label": "View Integrated Products"
+          }
+        ]
+      },
+      {
+        "category": "Ticket Settings",
+        "permissions": [
+          {
+            "aclKey": "ticket_settings:view.any",
+            "label": "View Ticket Settings"
+          }
+        ]
+      },
+      {
+        "category": "AMC Management",
+        "permissions": [
+          {
+            "aclKey": "amc:view.any",
+            "label": "View AMC"
+          }
+        ]
+      },
+      {
+        "category": "Project Management",
+        "permissions": [
+          {
+            "aclKey": "project:view.any",
+            "label": "View Projects"
+          }
+        ]
+      },
+      {
+        "category": "Skill Hub",
+        "permissions": [
+          {
+            "aclKey": "skill_hub:view.any",
+            "label": "View Skill Hub"
+          }
+        ]
+      },
+      {
+        "category": "Knowledge Base",
+        "permissions": [
+          {
+            "aclKey": "knowledge_base:view.any",
+            "label": "View Knowledge Base"
+          }
+        ]
+      },
+      {
+        "category": "Agent Performance",
+        "permissions": [
+          {
+            "aclKey": "agent_performance_config:view.any",
+            "label": "View Agent Performance Configuration"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "User": [
+      {
+        "category": "Role Management",
+        "permissions": [
+          {
+            "aclKey": "role:create.any",
+            "label": "Create Roles"
+          },
+          {
+            "aclKey": "role:view.any",
+            "label": "View Roles"
+          },
+          {
+            "aclKey": "role:edit.any",
+            "label": "Edit Roles"
+          },
+          {
+            "aclKey": "role:delete.any",
+            "label": "Remove Roles"
+          }
+        ]
+      },
+      {
+        "category": "User Management",
+        "permissions": [
+          {
+            "aclKey": "user:create.any",
+            "label": "Create Users"
+          },
+          {
+            "aclKey": "user:view.any",
+            "label": "View Users"
+          },
+          {
+            "aclKey": "user:edit.any",
+            "label": "Edit Users"
+          },
+          {
+            "aclKey": "user:delete.any",
+            "label": "Remove Users"
+          }
+        ]
+      }
+    ]
+  }
+]
