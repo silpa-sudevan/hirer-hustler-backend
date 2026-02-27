@@ -1,15 +1,16 @@
 ###
 ### Job Marketplace API - Test Collection
 ### Base URL: http://localhost:3000
-###
+###  Test the API
+Open http://localhost:3000/api for Swagger documentation
 
 ### Variables
 @baseUrl = http://localhost:3000
 @hirerToken = YOUR_HIRER_ACCESS_TOKEN
 @hustlerToken = YOUR_HUSTLER_ACCESS_TOKEN
-@jobId = YOUR_JOB_ID
-@hustlerId = YOUR_HUSTLER_USER_ID
-@applicationId = YOUR_APPLICATION_ID
+@jobId = JOB_ID
+@hustlerId = HUSTLER_USER_ID
+@applicationId =APPLICATION_ID
 
 ### ============================================
 ### AUTHENTICATION
