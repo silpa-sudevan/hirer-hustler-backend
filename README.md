@@ -137,14 +137,14 @@ npm run start:prod
 
 The API will be available at `http://localhost:3000`
 
-## 📚 API Documentation
+##  API Documentation
 
 Once the application is running, access the Swagger Api documentation at:
 ```
 http://localhost:3000/api
 ```
 
-## 🔐 API Endpoints
+##  API Endpoints
 
 ### Authentication Endpoints
 
@@ -180,7 +180,7 @@ http://localhost:3000/api
 | PATCH | `/applications/:id/status/:status` | Update application status | Hirer |
 | DELETE | `/applications/:id` | Delete application | Hustler (own) |
 
-## 📝 Usage Examples
+##  Usage Examples
 
 ### 1. Register as a Hirer
 
@@ -273,7 +273,7 @@ POST http://localhost:3000/jobs/<job_id>/select-candidate/<hustler_id>
 Authorization: Bearer <access_token>
 ```
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 backend/
@@ -361,7 +361,7 @@ backend/
 }
 ```
 
-## 🔒 Security Features
+##  Security Features
 
 - Passwords are hashed using bcrypt
 - JWT tokens for stateless authentication
@@ -384,26 +384,16 @@ This application uses **Cloudinary** for file storage:
   - Easy file management
 
 ### Why Cloudinary?
-- ✅ Free tier with generous limits
-- ✅ Easy integration
-- ✅ Automatic backups
-- ✅ CDN for fast file delivery
-- ✅ No server storage required
+-  Free tier with generous limits
+-  Easy integration
+-  Automatic backups
+-  CDN for fast file delivery
+-  No server storage required
 
-##  Testing
 
-```bash
-# Unit tests
-npm run test
-
-# E2E tests
-npm run test:e2e
-
-# Test coverage
-npm run test:cov
 ```
 
-## 🚀 Deployment
+
 
 ### Environment Variables for Production
 
@@ -418,30 +408,13 @@ Make sure to update these in production:
 3. Set `NODE_ENV=production`
 4. Update CORS settings in `main.ts` if needed
 
-### Deploy to platforms like:
-- Heroku
-- Railway
-- Render
-- AWS
-- DigitalOcean
 
-## 📄 License
 
 This project is licensed under the MIT License.
 
-## 👨‍💻 Author
 
-Built with ❤️ using NestJS
 
-## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
-
-## 📧 Support
-
-For support, email your-email@example.com or open an issue in the repository.
-
----
 
 **Note:** Remember to never commit your `.env` file to version control. The `.env.example` file is provided as a template.
 
