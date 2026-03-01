@@ -32,12 +32,12 @@ async function bootstrap() {
 
   app.useGlobalPipes(
     new ValidationPipe({
-      transform: true, // ✅ Enables class-transformer to work
+      transform: true, //  Enables class-transformer to work
       transformOptions: {
-        enableImplicitConversion: true, // ✅ Converts "true" => true, "1" => 1, etc.
+        enableImplicitConversion: true, //  Converts "true" => true, "1" => 1, etc.
       },
-      whitelist: false, // ✅ Strip unknown properties
-      forbidNonWhitelisted: false, // ✅ Don't throw error for unknown properties
+      whitelist: false, //  Strip unknown properties
+      forbidNonWhitelisted: false, //  Don't throw error for unknown properties
     }),
   );
 
